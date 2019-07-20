@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MvcCrud.Models;
 
 namespace MvcCrud.Data
 {
@@ -12,5 +13,6 @@ namespace MvcCrud.Data
             : base(options)
         {
         }
+        public DbSet<Movie> Movies { get; set; }
     }
 }

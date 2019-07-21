@@ -15,16 +15,18 @@ namespace MvcCrud.Controllers
     public class MoviesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly MovieRepository _movieRepository;
 
-        public MoviesController(ApplicationDbContext context)
+        public MoviesController(ApplicationDbContext context, MovieRepository movieRepository)
         {
             _context = context;
+            _movieRepository = movieRepository;
         }
 
         // GET: Movies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Movies.ToListAsync());
+            return View(await _movieRepository.GetAll());
         }
 
         // GET: Movies/Details/5

@@ -37,8 +37,7 @@ namespace MvcCrud.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var movie = await _movieRepository.GetById(id.Value);
             if (movie == null)
             {
                 return NotFound();
